@@ -153,9 +153,7 @@ func getNeighbours(y int, x int) (int, []cell) {
 			} else if col >= WIDTH {
 				col = 0
 			}
-			if grid[row][col] == 1 {
-				sum += 1
-			}
+			sum += grid[row][col]
 			neighbours = append(neighbours, cell{col, row, grid[row][col]})
 		}
 	}
@@ -191,7 +189,7 @@ func main() {
 	}()
 
 	setCursorVisibility(0)
-	gridSetupRandom(&grid)
+	gridSetupPiheptominoToPulsar(&grid)
 	for {
 		cmd := exec.Command("cmd", "/c", "cls")
 		cmd.Stdout = os.Stdout
